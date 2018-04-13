@@ -2,7 +2,6 @@ def chess():
     print("Now start to playing chess")
     print("s means soilder, h meas horse, kg means king")
     print("Please don't try to get over to the map. There are still some bugs")
-    print("And please don't walk to the cell where your other characters are. There are still some bugs,too.")
     a = ['rs1','rh1','rkg','rh2','rs2'],["   ","   ","   ","   ","   "],["   ","   ","   ","   ","   "],["   ","   ","   ","   ","   "],["bs1","bh1","bkg","bh2","bs2"]
     demonstrate(a)
     black=True
@@ -44,6 +43,10 @@ def move(field,character,direction,black):
             temp=field[c][d]
             field[c][d]=field[c-1][d]
             field[c-1][d]=temp
+        elif (field[c-1][d]=="bkg" or field [c-1][d]=="bs1" or field [c-1][d]=="bs2" or field[c-1][d]=="bh1" or field[c-1][d]=="bh2")and black:
+            print("You are attacking your alley. Please try again.")
+        elif (field[c-1][d]=="rkg" or field [c-1][d]=="rs1" or field [c-1][d]=="rs2" or field[c-1][d]=="rh1" or field[c-1][d]=="rh2")and not black:
+            print("You are attacking your alley. Please try again")
         else:
             print("%s was eliminated" % (field[c-1][d]))
             field[c-1][d]=field[c][d]
@@ -53,15 +56,23 @@ def move(field,character,direction,black):
             temp=field[c][d]
             field[c][d]=field[c+1][d]
             field[c+1][d]=temp
+        elif (field[c+1][d]=="bkg" or field [c+1][d]=="bs1" or field [c+1][d]=="bs2" or field[c+1][d]=="bh1" or field[c+1][d]=="bh2")and black:
+            print("You are attacking your alley. Please try again.")
+        elif (field[c+1][d]=="rkg" or field [c+1][d]=="rs1" or field [c+1][d]=="rs2" or field[c+1][d]=="rh1" or field[c+1][d]=="rh2")and not black:
+            print("You are attacking your alley. Please try again")
         else:
             print("%s was eliminated" % (field[c+1][d]))
             field[c+1][d]=field[c][d]
             field[c][d]="   "
     elif direction=='left':
-        if field[c][d-1]=="   "
+        if field[c][d-1]=="   ":
             temp=field[c][d]
             field[c][d]=field[c][d-1]
             field[c][d-1]=temp
+        elif (field[c][d-1]=="bkg" or field [c][d-1]=="bs1" or field [c][d-1]=="bs2" or field[c][d-1]=="bh1" or field[c][d-1]=="bh2")and black:
+            print("You are attacking your alley. Please try again.")
+        elif (field[c][d-1]=="rkg" or field [c][d-1]=="rs1" or field [c][d-1]=="rs2" or field[c][d-1]=="rh1" or field[c][d-1]=="rh2")and not black:
+            print("You are attacking your alley. Please try again")
         else:
             print("%s was eliminated" % (field[c][d-1]))
             field[c][d-1]=field[c][d]
@@ -71,6 +82,10 @@ def move(field,character,direction,black):
             temp=field[c][d]
             field[c][d]=field[c][d+1]
             field[c][d+1]=temp
+        elif (field[c][d+1]=="bkg" or field [c][d+1]=="bs1" or field [c][d+1]=="bs2" or field[c][d+1]=="bh1" or field[c][d+1]=="bh2")and black:
+            print("You are attacking your alley. Please try again.")
+        elif (field[c][d+1]=="rkg" or field [c][d+1]=="rs1" or field [c][d+1]=="rs2" or field[c][d+1]=="rh1" or field[c][d+1]=="rh2")and not black:
+            print("You are attacking your alley. Please try again")
         else:
             print("%s was eliminated" % (field[c][d+1]))
             field[c][d+1]=field[c][d]
