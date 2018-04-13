@@ -1,7 +1,6 @@
 def chess():
     print("Now start to playing chess")
     print("s means soilder, h meas horse, kg means king")
-    print("Please don't try to get over to the map. There are still some bugs")
     a = ['rs1','rh1','rkg','rh2','rs2'],["   ","   ","   ","   ","   "],["   ","   ","   ","   ","   "],["   ","   ","   ","   ","   "],["bs1","bh1","bkg","bh2","bs2"]
     demonstrate(a)
     black=True
@@ -39,7 +38,9 @@ def move(field,character,direction,black):
     if not k:
         print("Your chrarcter is dead.Please pick another one.")
     if direction=='up':
-        if field[c-1][d]=="   ":
+        if c-1<0:
+            print("You are out of the map. Please try again.")
+        elif field[c-1][d]=="   ":
             temp=field[c][d]
             field[c][d]=field[c-1][d]
             field[c-1][d]=temp
@@ -52,7 +53,9 @@ def move(field,character,direction,black):
             field[c-1][d]=field[c][d]
             field[c][d]="   "
     elif direction=='down':
-        if field[c+1][d]=="   ":
+        if c+1>4:
+            print("You are out of the map. Please try again.")
+        elif field[c+1][d]=="   ":
             temp=field[c][d]
             field[c][d]=field[c+1][d]
             field[c+1][d]=temp
@@ -65,7 +68,9 @@ def move(field,character,direction,black):
             field[c+1][d]=field[c][d]
             field[c][d]="   "
     elif direction=='left':
-        if field[c][d-1]=="   ":
+        if d-1<0:
+            print("You are out of the map. Please try again.")
+        elif field[c][d-1]=="   ":
             temp=field[c][d]
             field[c][d]=field[c][d-1]
             field[c][d-1]=temp
@@ -78,7 +83,9 @@ def move(field,character,direction,black):
             field[c][d-1]=field[c][d]
             field[c][d]="   "
     elif direction=='right':
-        if field[c][d+1]=="   ":
+        if d+1>4:
+            print("You are out of the map. Please try again.")
+        elif field[c][d+1]=="   ":
             temp=field[c][d]
             field[c][d]=field[c][d+1]
             field[c][d+1]=temp
