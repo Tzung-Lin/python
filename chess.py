@@ -1,6 +1,7 @@
 def chess():
     print("Now start to playing chess")
     print("s means soilder, h meas horse, kg means king")
+    print("Try to protect your king")
     a = ['rs1','rh1','rkg','rh2','rs2'],["   ","   ","   ","   ","   "],["   ","   ","   ","   ","   "],["   ","   ","   ","   ","   "],["bs1","bh1","bkg","bh2","bs2"]
     demonstrate(a)
     black=True
